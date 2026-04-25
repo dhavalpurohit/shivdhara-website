@@ -1,0 +1,62 @@
+:root {
+  /* Corporate Color Palette */
+  --color-primary: #002147;
+  --color-primary-foreground: #ffffff;
+  
+  --color-secondary: #d4af37;
+  --color-secondary-foreground: #1a1a1a;
+  
+  --color-accent: #f5f5f5;
+  --color-accent-foreground: #002147;
+  
+  --color-background: #ffffff;
+  --color-foreground: #1a1a1a;
+  
+  --color-muted: #f4f4f5;
+  --color-muted-foreground: #71717a;
+  
+  --color-border: #e4e4e7;
+  --color-input: #e4e4e7;
+  --color-ring: #002147;
+
+  /* Typography Scale */
+  --font-size-xs: 0.75rem;
+  --font-size-sm: 0.875rem;
+  --font-size-base: 1rem;
+  --font-size-lg: 1.125rem;
+  --font-size-xl: 1.25rem;
+  --font-size-2xl: 1.5rem;
+  --font-size-3xl: 1.875rem;
+  --font-size-4xl: 2.25rem;
+  --font-size-5xl: 3rem;
+
+  /* Spacing */
+  --spacing-container: 1.25rem;
+  --section-padding: 5rem;
+
+  /* Border Radius */
+  --radius-sm: 0.125rem;
+  --radius-md: 0.375rem;
+  --radius-lg: 0.5rem;
+  --radius-xl: 0.75rem;
+  --radius-full: 9999px;
+
+  /* Shadows */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+}
+
+.dark {
+  --color-background: #002147;
+  --color-foreground: #ffffff;
+  
+  --color-muted: #003366;
+  --color-muted-foreground: #a1a1aa;
+  
+  --color-border: #003366;
+  --color-input: #003366;
+  
+  --color-accent: #003366;
+  --color-accent-foreground: #ffffff;
+}
