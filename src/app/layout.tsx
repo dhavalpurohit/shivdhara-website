@@ -4,6 +4,8 @@ import "@/styles/globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { MarketTicker } from "@/components/widgets/MarketTicker";
+import { WhatsAppWidget } from "@/components/widgets/WhatsAppWidget";
+import { InvestorAlert } from "@/components/sections/InvestorAlert";
 import { constructMetadata } from "@/lib/seo";
 
 const poppins = Poppins({
@@ -27,6 +29,8 @@ export default function RootLayout({
           <MarketTicker />
         </div>
         <main>{children}</main>
+        <InvestorAlert />
+        <WhatsAppWidget />
         <Footer />
       </body>
     </html>

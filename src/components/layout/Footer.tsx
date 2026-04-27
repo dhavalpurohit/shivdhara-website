@@ -35,7 +35,7 @@ export const Footer = () => {
               Your trusted partner in financial growth and security. Providing
               expert advisory and trading solutions since 2010.
             </p>
-            <div className="flex space-x-4">
+            {/* <div className="flex space-x-4">
               <Link
                 href="#"
                 className="w-8 h-8 rounded-full bg-blue-900 flex items-center justify-center hover:bg-secondary transition-colors"
@@ -60,7 +60,7 @@ export const Footer = () => {
               >
                 <Instagram className="w-4 h-4" />
               </Link>
-            </div>
+            </div> */}
           </div>
 
           {/* Quick Links */}
@@ -117,10 +117,10 @@ export const Footer = () => {
               <li className="flex items-center gap-3">
                 <Mail className="w-5 h-5 text-secondary shrink-0" />
                 <a
-                  href="mailto:[EMAIL_ADDRESS]"
+                  href="mailto:shivdharasecurities@gmail.com"
                   className="text-blue-100 text-sm"
                 >
-                  [EMAIL_ADDRESS]
+                  shivdharasecurities@gmail.com
                 </a>
               </li>
             </ul>

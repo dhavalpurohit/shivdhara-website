@@ -10,7 +10,7 @@ import {
   Globe as Linkedin,
   PlayCircle as Youtube,
 } from "lucide-react";
-import Link from "next/link";
+// import Link from "next/link";
 
 export const TopBar = () => {
   return (
@@ -26,16 +26,16 @@ export const TopBar = () => {
             <span>+91 92277 80880</span>
           </a>
           <a
-            href="mailto:info@shivdharasecurities.com"
+            href="mailto:shivdharasecurities@gmail.com"
             className="hidden sm:flex items-center gap-2 hover:text-secondary transition-colors"
           >
             <Mail size={14} className="text-secondary" />
-            <span>info@shivdharasecurities.com</span>
+            <span>shivdharasecurities@gmail.com</span>
           </a>
         </div>
 
         {/* Right Side: Social Icons */}
-        <div className="flex items-center gap-4">
+        {/* <div className="flex items-center gap-4">
           <Link
             href="#"
             className="hover:text-secondary transition-colors"
@@ -64,7 +64,7 @@ export const TopBar = () => {
           >
             <Youtube size={16} />
           </Link>
-        </div>
+        </div> */}
       </Container>
     </div>
   );

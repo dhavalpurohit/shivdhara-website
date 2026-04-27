@@ -68,9 +68,9 @@ export default function ContactPage() {
               <h3 className="text-xl font-bold text-primary mb-4">Email Us</h3>
               <a
                 className="text-muted-foreground"
-                href="mailto:[EMAIL_ADDRESS]"
+                href="mailto:shivdharasecurities@gmail.com"
               >
-                [EMAIL_ADDRESS]
+                shivdharasecurities@gmail.com
               </a>
             </div>
           </div>

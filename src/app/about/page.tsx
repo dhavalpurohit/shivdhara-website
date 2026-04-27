@@ -1,25 +1,31 @@
+import { Metadata } from "next";
 import { Container } from "@/components/ui/Container";
-import { SectionTitle } from "@/components/ui/SectionTitle";
+import { AboutUs } from "@/components/sections/AboutUs";
+import { Vision } from "@/components/sections/Vision";
+import { Mission } from "@/components/sections/Mission";
+import { Team } from "@/components/sections/Team";
+import { OfficeGallery } from "@/components/sections/OfficeGallery";
+import { Awards } from "@/components/sections/Awards";
+import { Testimonials } from "@/components/sections/Testimonials";
+import { constructMetadata } from "@/lib/seo";
+import { AboutHero } from "@/components/sections/AboutHero";
+
+export const metadata: Metadata = constructMetadata({
+  title: "About Shivdhara Securities | Our Mission, Vision & Team",
+  description: "Learn about Shivdhara Securities, our mission, vision, and team dedicated to helping clients achieve financial success through expert advisory and investment strategies.",
+});
 
 export default function AboutPage() {
   return (
-    <div className="pt-32 pb-24">
-      <Container>
-        <SectionTitle
-          title="About Shivdhara Securities"
-          subtitle="Empowering investors with knowledge and tools since 2010."
-        />
-        <div className="prose max-w-none text-muted-foreground">
-          <p>
-            Shivdhara Securities is a premier financial services firm dedicated to providing comprehensive investment solutions. 
-            Our journey began with a simple mission: to make high-quality financial advisory accessible to every investor.
-          </p>
-          <p>
-            Today, we are proud to serve over 15,000 clients across India, offering everything from equity trading to 
-            personalized portfolio management.
-          </p>
-        </div>
-      </Container>
-    </div>
+    <main className="overflow-hidden">
+      <AboutHero />
+      <AboutUs />
+      <Vision />
+      <Mission />
+      <Team />
+      <OfficeGallery />
+      <Awards />
+      <Testimonials />
+    </main>
   );
 }
