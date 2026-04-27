@@ -11,6 +11,7 @@ import { Button } from "@/components/ui/Button";
 
 export const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [activeMobileMenu, setActiveMobileMenu] = useState<string | null>(null);
   const pathname = usePathname();
 
   return (
@@ -23,7 +24,9 @@ export const Navbar = () => {
               href={link.href}
               className={cn(
                 "text-sm font-medium transition-colors hover:text-secondary flex items-center gap-1",
-                pathname === link.href ? "text-secondary" : "text-primary"
+                pathname === link.href || (link.subLinks && pathname.startsWith(link.href)) 
+                  ? "text-secondary" 
+                  : "text-primary"
               )}
             >
               {link.name}
@@ -72,33 +75,72 @@ export const Navbar = () => {
             <div className="flex flex-col space-y-4">
               {NAV_LINKS.map((link) => (
                 <div key={link.name}>
-                  <Link
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className={cn(
-                      "block text-base font-medium",
-                      pathname === link.href ? "text-secondary" : "text-primary"
-                    )}
-                  >
-                    {link.name}
-                  </Link>
-                  {link.subLinks && (
-                    <div className="ml-4 mt-2 space-y-2 border-l-2 border-accent pl-4">
-                      {link.subLinks.map((sub) => (
-                        <Link
-                          key={sub.name}
-                          href={sub.href}
-                          onClick={() => setIsOpen(false)}
-                          className="block text-sm text-muted-foreground hover:text-secondary"
-                        >
-                          {sub.name}
-                        </Link>
-                      ))}
-                    </div>
+                  {link.subLinks ? (
+                    <>
+                      <button
+                        onClick={(e) => {
+                          e.preventDefault();
+                          setActiveMobileMenu(activeMobileMenu === link.name ? null : link.name);
+                        }}
+                        className={cn(
+                          "w-full flex items-center justify-between text-base font-medium",
+                          pathname.startsWith(link.href) ? "text-secondary" : "text-primary"
+                        )}
+                      >
+                        {link.name}
+                        <ChevronDown 
+                          className={cn(
+                            "w-4 h-4 transition-transform duration-200", 
+                            activeMobileMenu === link.name ? "rotate-180" : ""
+                          )} 
+                        />
+                      </button>
+                      <AnimatePresence>
+                        {activeMobileMenu === link.name && (
+                          <motion.div 
+                            initial={{ height: 0, opacity: 0 }}
+                            animate={{ height: "auto", opacity: 1 }}
+                            exit={{ height: 0, opacity: 0 }}
+                            className="overflow-hidden"
+                          >
+                            <div className="ml-4 mt-2 space-y-2 border-l-2 border-accent pl-4 py-2">
+                              <Link
+                                href={link.href}
+                                onClick={() => setIsOpen(false)}
+                                className="block text-sm text-primary font-bold hover:text-secondary mb-3"
+                              >
+                                View All {link.name}
+                              </Link>
+                              {link.subLinks.map((sub) => (
+                                <Link
+                                  key={sub.name}
+                                  href={sub.href}
+                                  onClick={() => setIsOpen(false)}
+                                  className="block text-sm text-muted-foreground hover:text-secondary py-1"
+                                >
+                                  {sub.name}
+                                </Link>
+                              ))}
+                            </div>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
+                    </>
+                  ) : (
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "block text-base font-medium",
+                        pathname === link.href ? "text-secondary" : "text-primary"
+                      )}
+                    >
+                      {link.name}
+                    </Link>
                   )}
                 </div>
               ))}
-              <Button className="w-full">Open Account</Button>
+              <Button className="w-full mt-4">Open Account</Button>
             </div>
           </motion.div>
         )}
